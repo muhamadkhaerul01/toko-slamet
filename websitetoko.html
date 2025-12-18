@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Ibadah Muslim - Haji Slamet X Umam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/compressorjs@1.0.9/dist/compressor.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a7f4b;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --accent: #2e8b57;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c19d2c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #156c3d;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+        }
+        
+        /* Products Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img-container {
+            height: 250px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        
+        .product-img-container.has-image .product-img {
+            display: block;
+        }
+        
+        .product-img-container i {
+            font-size: 4rem;
+            color: var(--primary);
+        }
+        
+        .product-img-container.has-image i {
+            display: none;
+        }
+        
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+        
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .upload-container {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        .upload-label {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #555;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+            border: 1px dashed #ccc;
+        }
+        
+        .upload-label:hover {
+            background-color: #e0e0e0;
+            border-color: var(--primary);
+        }
+        
+        .upload-input {
+            display: none;
+        }
+        
+        /* Upload Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.3s;
+            position: relative;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-header h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .close-modal {
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #777;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+        }
+        
+        .modal-body {
+            text-align: center;
+        }
+        
+        .upload-preview {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .upload-preview.show {
+            display: block;
+        }
+        
+        .upload-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .upload-info h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .upload-info p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .progress-container {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            height: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.3s;
+            border-radius: 10px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .feature i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image i {
+            font-size: 15rem;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            width: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #1da851;
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-text {
+            position: absolute;
+            right: 70px;
+            background-color: #25D366;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .whatsapp-float:hover .whatsapp-text {
+            opacity: 1;
+        }
+        
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+        }
+        
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(26, 127, 75, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .chatbot-button:hover {
+            background-color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(26, 127, 75, 0.6);
+        }
+        
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            width: 350px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: none;
+            animation: fadeInUp 0.3s;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-header h3 {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .close-chatbot {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .chatbot-body {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 12px 15px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .bot-message {
+            background-color: #f0f0f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .chatbot-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .chatbot-input input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .send-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .send-btn:hover {
+            background-color: var(--accent);
+        }
+        
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .quick-reply {
+            background-color: #f0f0f0;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .quick-reply:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .order-summary {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .order-summary h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .order-summary p {
+            margin-bottom: 5px;
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-3 {
+            margin-top: 15px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .about-image i {
+                font-size: 10rem;
+            }
+            
+            .chatbot-window {
+                width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 20px;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                margin: 10% auto;
+                padding: 20px;
+            }
+            
+            .chatbot-container {
+                left: 15px;
+                bottom: 15px;
+            }
+            
+            .whatsapp-float {
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .product-price {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .chatbot-window {
+                width: calc(100vw - 60px);
+                left: 0;
+                bottom: 70px;
+            }
+            
+            .whatsapp-text {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-mosque"></i>
+                <div class="logo-text">
+                    <h1>Haji Slamet X Umam</h1>
+                    <p>Toko Perlengkapan Ibadah Muslim</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#produk">Produk</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Selamat Datang di Haji Slamet X Umam</h2>
+            <p>Menyediakan berbagai perlengkapan ibadah muslim dengan kualitas terbaik dan harga terjangkau sejak 1995</p>
+            <a href="#produk" class="btn">Lihat Produk</a>
+            <a href="https://wa.me/6285817893744?text=Halo%20Haji%20Slamet%20X%20Umam%2C%20saya%20ingin%20bertanya%20tentang%20produk%20Anda" target="_blank" class="btn btn-whatsapp" style="margin-left: 15px;">
+                <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="produk">
+        <div class="container">
+            <div class="section-title">
+                <h2>Produk Unggulan</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Produk 1: Al-Quran -->
+                <div class="product-card" id="product1">
+                    <div class="product-img-container has-image">
+                        <img src="alquran.jpg" alt="Al-Quran Terjemahan" id="image-product1">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Al-Quran Terjemahan</h3>
+                        <p>Al-Quran dengan terjemahan bahasa Indonesia, tafsir ringkas, dan tajwid warna untuk memudahkan membaca.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 85.000</span>
+                            <button class="btn btn-small" onclick="addToCart(1)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk 2: Sajadah -->
+                <div class="product-card" id="product2">
+                    <div class="product-img-container has-image">
+                        <img src="sejadah.jpg" alt="Sajadah Premium" id="image-product2">
+                        <i class="fas fa-rug"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sajadah Premium</h3>
+                        <p>Sajadah dengan bahan berkualitas, motif elegan, dan nyaman digunakan untuk shalat sehari-hari.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 120.000</span>
+                            <button class="btn btn-small" onclick="addToCart(2)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk 3: Mukena -->
+                <div class="product-card" id="product3">
+                    <div class="product-img-container has-image">
+                        <img src="mukena.jpg" alt="Mukena Katun Jepang" id="image-product3">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mukena Katun Jepang</h3>
+                        <p>Mukena dengan bahan katun jepang yang nyaman, adem, dan tidak mudah kusut.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 185.000</span>
+                            <button class="btn btn-small" onclick="addToCart(3)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk 4: Tasbih Digital -->
+                <div class="product-card" id="product4">
+                    <div class="product-img-container has-image">
+                        <img src="tasbih.jpg" alt="Tasbih Digital" id="image-product4">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tasbih Digital</h3>
+                        <p>Tasbih elektronik dengan counter digital, cocok untuk zikir dan mudah dibawa bepergian.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 65.000</span>
+                            <button class="btn btn-small" onclick="addToCart(4)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk 5: Sarung Songket -->
+                <div class="product-card" id="product5">
+                    <div class="product-img-container has-image">
+                        <img src="sarung.jpg" alt="Sarung Songket" id="image-product5">
+                        <i class="fas fa-vest"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sarung Songket</h3>
+                        <p>Sarung songket berkualitas tinggi dengan motif tradisional, cocok untuk shalat dan acara formal.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 250.000</span>
+                            <button class="btn btn-small" onclick="addToCart(5)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk 6: Peci Hitam -->
+                <div class="product-card" id="product6">
+                    <div class="product-img-container has-image">
+                        <img src="peci.jpg" alt="Peci Hitam Premium" id="image-product6">
+                        <i class="fas fa-hat-cowboy"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Peci Hitam Premium</h3>
+                        <p>Peci hitam dengan bahan premium, nyaman dipakai dan cocok untuk berbagai acara keagamaan.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 75.000</span>
+                            <button class="btn btn-small" onclick="addToCart(6)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk 7: Minyak Wangi -->
+                <div class="product-card" id="product7">
+                    <div class="product-img-container has-image">
+                        <img src="minyak.jpg" alt="Minyak Wangi Al-Madinah" id="image-product7">
+                        <i class="fas fa-wine-bottle"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Minyak Wangi Al-Madinah</h3>
+                        <p>Minyak wangi dengan aroma khas Timur Tengah, tahan lama dan cocok untuk ke masjid atau acara spesial.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 95.000</span>
+                            <button class="btn btn-small" onclick="addToCart(7)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk 8: Buku Doa -->
+                <div class="product-card" id="product8">
+                    <div class="product-img-container has-image">
+                        <img src="buku.jpg" alt="Buku Doa Harian" id="image-product8">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Buku Doa Harian</h3>
+                        <p>Kumpulan doa-doa harian dilengkapi dengan terjemahan dan latin, mudah dibawa ke mana-mana.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 35.000</span>
+                            <button class="btn btn-small" onclick="addToCart(8)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk 9: Karpet Masjid -->
+                <div class="product-card" id="product9">
+                    <div class="product-img-container has-image">
+                        <img src="karpet.jpg" alt="Karpet Masjid" id="image-product9">
+                        <i class="fas fa-rug"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Karpet Masjid</h3>
+                        <p>Karpet masjid dengan bahan tebal dan nyaman, motif elegan, cocok untuk masjid atau musala.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 450.000</span>
+                            <button class="btn btn-small" onclick="addToCart(9)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk 10: Rak Al-Quran -->
+                <div class="product-card" id="product10">
+                    <div class="product-img-container has-image">
+                        <img src="rak.jpg" alt="Rak Al-Quran" id="image-product10">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Rak Al-Quran</h3>
+                        <p>Rak khusus untuk menyimpan Al-Quran, terbuat dari kayu jati berkualitas dengan ukiran kaligrafi.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 300.000</span>
+                            <button class="btn btn-small" onclick="addToCart(10)">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="https://wa.me/6285817893744?text=Halo%20Haji%20Slamet%20X%20Umam%2C%20saya%20ingin%20memesan%20beberapa%20produk" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                </a>
+                <p class="mt-3">Klik tombol di atas untuk langsung terhubung ke WhatsApp kami</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="tentang">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Tentang Haji Slamet X Umam</h2>
+                    <p>Haji Slamet X Umam adalah toko perlengkapan ibadah muslim yang telah melayani masyarakat sejak tahun 1995. Kami berkomitmen untuk menyediakan produk-produk berkualitas dengan harga yang terjangkau.</p>
+                    <p>Dengan pengalaman lebih dari 25 tahun, kami memahami kebutuhan umat muslim dalam beribadah dan selalu berusaha memberikan pelayanan terbaik.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Produk Berkualitas</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Pengiriman Cepat</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <span>Harga Terjangkau</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <span>Layanan 24/7</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <i class="fas fa-store"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimoni">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Pelanggan Kami</h2>
+            </div>
+            
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Saya sudah belanja di Haji Slamet X Umam selama bertahun-tahun. Kualitas produknya selalu terjaga dan pelayanannya ramah."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Ahmad Subandi</h4>
+                            <p>Pelanggan Setia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Mukena yang saya beli di sini sangat nyaman dipakai. Bahan katun jepangnya memang beda, adem dan tidak gerah."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SR</div>
+                        <div class="author-info">
+                            <h4>Siti Rohmah</h4>
+                            <p>Ibu Rumah Tangga</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Pengiriman cepat dan produk sesuai gambar. Saya puas berbelanja di toko ini, akan kembali lagi untuk kebutuhan ibadah lainnya."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">FR</div>
+                        <div class="author-info">
+                            <h4>Fauzi Rahman</h4>
+                            <p>Karyawan Swasta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="kontak">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jl. Raya Kebayoran Lama No. 123, Jakarta Selatan</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(021) 5678-9012</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@hajislametumam.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Buka Setiap Hari: 08.00 - 20.00 WIB</span>
+                        </div>
+                    </div>
+                    
+                    <h3>Hubungi via WhatsApp</h3>
+                    <div class="social-links">
+                        <a href="https://wa.me/6285817893744?text=Halo%20Haji%20Slamet%20X%20Umam%2C%20saya%20ingin%20bertanya%20tentang%20produk%20Anda" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <a href="https://wa.me/6285817893744?text=Halo%20Haji%20Slamet%20X%20Umam%2C%20saya%20ingin%20memesan%20produk" target="_blank" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Chat Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" class="form-control" placeholder="Masukkan nama lengkap" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Masukkan email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Masukkan subjek pesan" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" class="form-control" placeholder="Tulis pesan Anda di sini" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Haji Slamet X Umam</h3>
+                    <p>Toko perlengkapan ibadah muslim terpercaya sejak 1995. Menyediakan berbagai kebutuhan ibadah dengan kualitas terbaik.</p>
+                    <div class="mt-3">
+                        <a href="https://wa.me/6285817893744?text=Halo%20Haji%20Slamet%20X%20Umam%2C%20saya%20ingin%20bertanya%20tentang%20produk%20Anda" target="_blank" class="btn btn-whatsapp btn-small">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Produk Kami</h3>
+                    <ul class="footer-links">
+                        <li><a href="#produk">Al-Quran & Buku Islami</a></li>
+                        <li><a href="#produk">Mukena & Sajadah</a></li>
+                        <li><a href="#produk">Busana Muslim</a></li>
+                        <li><a href="#produk">Tasbih & Perlengkapan Haji</a></li>
+                        <li><a href="#produk">Parfum & Minyak Wangi</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#produk">Pemesanan Online</a></li>
+                        <li><a href="#">Pengiriman Cepat</a></li>
+                        <li><a href="#">Garansi Produk</a></li>
+                        <li><a href="#">Bantuan 24/7</a></li>
+                        <li><a href="#">Kebijakan Pengembalian</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta Selatan, Indonesia</li>
+                        <li><i class="fas fa-phone-alt"></i> (021) 5678-9012</li>
+                        <li><i class="fas fa-envelope"></i> info@hajislametumam.com</li>
+                        <li><i class="fab fa-whatsapp"></i> +62 858-1789-3744</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Haji Slamet X Umam. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6285817893744?text=Halo%20Haji%20Slamet%20X%20Umam%2C%20saya%20ingin%20bertanya%20tentang%20produk%20Anda" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">Chat via WhatsApp</span>
+    </a>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <div class="chatbot-button" id="chatbotButton">
+            <i class="fas fa-comments"></i>
+        </div>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3><i class="fas fa-robot"></i> Asisten Pemesanan</h3>
+                <div class="close-chatbot" id="closeChatbot">×</div>
+            </div>
+            
+            <div class="chatbot-body">
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        Assalamualaikum! Saya asisten virtual Haji Slamet X Umam. Ada yang bisa saya bantu?
+                    </div>
+                    <div class="message bot-message">
+                        Saya bisa membantu Anda:
+                        <div class="quick-replies">
+                            <div class="quick-reply" onclick="selectProduct(1)">Al-Quran</div>
+                            <div class="quick-reply" onclick="selectProduct(2)">Sajadah</div>
+                            <div class="quick-reply" onclick="selectProduct(3)">Mukena</div>
+                            <div class="quick-reply" onclick="selectProduct(4)">Tasbih Digital</div>
+                            <div class="quick-reply" onclick="selectProduct(5)">Sarung</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chatbot-input">
+                    <input type="text" id="chatInput" placeholder="Ketik pesan Anda..." onkeypress="handleChatInputKey(event)">
+                    <button class="send-btn" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Unggah Gambar Produk</h3>
+                <div class="close-modal" onclick="closeUploadModal()">×</div>
+            </div>
+            <div class="modal-body">
+                <img src="" alt="Preview" class="upload-preview" id="uploadPreview">
+                
+                <div class="upload-info">
+                    <h4>Informasi File</h4>
+                    <p><strong>Nama File:</strong> <span id="fileName">-</span></p>
+                    <p><strong>Ukuran Asli:</strong> <span id="fileSize">-</span></p>
+                    <p><strong>Ukuran Setelah Kompresi:</strong> <span id="compressedSize">-</span></p>
+                    <p><strong>Status:</strong> <span id="uploadStatus">Menunggu gambar...</span></p>
+                </div>
+                
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
+                <button class="btn btn-secondary" id="saveButton" onclick="saveCompressedImage()" disabled>Simpan Gambar</button>
+                <button class="btn btn-small" onclick="closeUploadModal()" style="margin-left: 10px;">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentProductId = null;
+        let originalFile = null;
+        let compressedFile = null;
+        let originalFileSize = 0;
+        let compressedFileSize = 0;
+        
+        // Chatbot variables
+        let orderItems = [];
+        let currentStep = 'greeting';
+        let selectedProduct = null;
+        
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    document.querySelector('nav ul').classList.remove('active');
+                }
+            });
+        });
+        
+        // Handle image uploads for products
+        document.querySelectorAll('.upload-input').forEach(input => {
+            input.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                currentProductId = this.getAttribute('data-product');
+                
+                if (file) {
+                    // Reset modal
+                    resetUploadModal();
+                    
+                    // Show modal
+                    openUploadModal(currentProductId);
+                    
+                    // Get product name for modal title
+                    const productName = document.querySelector(`#product${currentProductId} h3`).textContent;
+                    document.getElementById('modalTitle').textContent = `Unggah Gambar: ${productName}`;
+                    
+                    // Show file info
+                    originalFile = file;
+                    originalFileSize = file.size;
+                    document.getElementById('fileName').textContent = file.name;
+                    document.getElementById('fileSize').textContent = formatFileSize(file.size);
+                    
+                    // Show preview of original image
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        document.getElementById('uploadPreview').src = event.target.result;
+                        document.getElementById('uploadPreview').classList.add('show');
+                    };
+                    reader.readAsDataURL(file);
+                    
+                    // Start compression
+                    compressImage(file);
+                }
+            });
+        });
+        
+        // Format file size to readable format
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // Compress image using compressorjs
+        function compressImage(file) {
+            document.getElementById('uploadStatus').textContent = 'Mengompresi gambar...';
+            document.getElementById('progressContainer').style.display = 'block';
+            
+            // Update progress bar
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += 5;
+                if (progress > 90) clearInterval(progressInterval);
+                document.getElementById('progressBar').style.width = `${progress}%`;
+            }, 100);
+            
+            // Compress the image
+            new Compressor(file, {
+                quality: 0.6,
+                maxWidth: 800,
+                maxHeight: 800,
+                convertSize: 500000, // Convert to JPEG if size > 500KB
+                success(result) {
+                    clearInterval(progressInterval);
+                    document.getElementById('progressBar').style.width = '100%';
+                    
+                    compressedFile = result;
+                    compressedFileSize = result.size;
+                    
+                    // Update UI
+                    document.getElementById('compressedSize').textContent = formatFileSize(result.size);
+                    document.getElementById('uploadStatus').textContent = 'Gambar siap disimpan';
+                    document.getElementById('uploadStatus').style.color = 'green';
+                    
+                    // Show compressed image preview
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        document.getElementById('uploadPreview').src = event.target.result;
+                    };
+                    reader.readAsDataURL(result);
+                    
+                    // Enable save button
+                    document.getElementById('saveButton').disabled = false;
+                    
+                    // Show compression info
+                    const compressionRatio = Math.round((1 - compressedFileSize / originalFileSize) * 100);
+                    if (compressionRatio > 0) {
+                        document.getElementById('uploadStatus').textContent = 
+                            `Gambar siap disimpan (diperkecil ${compressionRatio}%)`;
+                    }
+                },
+                error(err) {
+                    console.error('Compression error:', err);
+                    document.getElementById('uploadStatus').textContent = 'Gagal mengompresi gambar';
+                    document.getElementById('uploadStatus').style.color = 'red';
+                }
+            });
+        }
+        
+        // Open upload modal
+        function openUploadModal(productId) {
+            document.getElementById('uploadModal').style.display = 'block';
+        }
+        
+        // Close upload modal
+        function closeUploadModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+            resetUploadModal();
+        }
+        
+        // Reset upload modal
+        function resetUploadModal() {
+            document.getElementById('fileName').textContent = '-';
+            document.getElementById('fileSize').textContent = '-';
+            document.getElementById('compressedSize').textContent = '-';
+            document.getElementById('uploadStatus').textContent = 'Menunggu gambar...';
+            document.getElementById('uploadStatus').style.color = '';
+            document.getElementById('progressContainer').style.display = 'none';
+            document.getElementById('progressBar').style.width = '0%';
+            document.getElementById('uploadPreview').src = '';
+            document.getElementById('uploadPreview').classList.remove('show');
+            document.getElementById('saveButton').disabled = true;
+            
+            currentProductId = null;
+            originalFile = null;
+            compressedFile = null;
+            originalFileSize = 0;
+            compressedFileSize = 0;
+        }
+        
+        // Save compressed image
+        function saveCompressedImage() {
+            if (!currentProductId || !compressedFile) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                // Save to localStorage
+                try {
+                    localStorage.setItem(`product-image-${currentProductId}`, event.target.result);
+                    
+                    // Update product image
+                    const imgElement = document.getElementById(`image-product${currentProductId}`);
+                    const imgContainer = imgElement.parentElement;
+                    
+                    imgElement.src = event.target.result;
+                    imgContainer.classList.add('has-image');
+                    
+                    // Show success message
+                    alert(`Gambar berhasil disimpan! Ukuran file: ${formatFileSize(compressedFileSize)}`);
+                    
+                    // Close modal
+                    closeUploadModal();
+                    
+                    // Clear file input
+                    document.getElementById(`upload-product${currentProductId}`).value = '';
+                } catch (error) {
+                    console.error('Error saving image:', error);
+                    alert('Gagal menyimpan gambar. Storage mungkin penuh.');
+                }
+            };
+            reader.readAsDataURL(compressedFile);
+        }
+        
+        // Load saved images from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load product images
+            for (let i = 1; i <= 10; i++) {
+                const savedImage = localStorage.getItem(`product-image-${i}`);
+                if (savedImage) {
+                    const imgElement = document.getElementById(`image-product${i}`);
+                    const imgContainer = imgElement.parentElement;
+                    
+                    imgElement.src = savedImage;
+                    imgContainer.classList.add('has-image');
+                }
+            }
+            
+            // Add storage info
+            updateStorageInfo();
+            
+            // Setup chatbot
+            setupChatbot();
+        });
+        
+        // Clear all images
+        function clearAllImages() {
+            if (confirm('Apakah Anda yakin ingin menghapus semua gambar produk?')) {
+                for (let i = 1; i <= 10; i++) {
+                    localStorage.removeItem(`product-image-${i}`);
+                    const imgElement = document.getElementById(`image-product${i}`);
+                    const imgContainer = imgElement.parentElement;
+                    
+                    imgElement.src = '';
+                    imgContainer.classList.remove('has-image');
+                    
+                    // Clear file input
+                    const fileInput = document.getElementById(`upload-product${i}`);
+                    if (fileInput) fileInput.value = '';
+                }
+                alert('Semua gambar produk telah dihapus!');
+                updateStorageInfo();
+            }
+        }
+        
+        // Update storage information
+        function updateStorageInfo() {
+            let totalSize = 0;
+            for (let i = 1; i <= 10; i++) {
+                const savedImage = localStorage.getItem(`product-image-${i}`);
+                if (savedImage) {
+                    // Calculate approximate size (base64 string is about 1.37x original size)
+                    totalSize += savedImage.length * 0.75;
+                }
+            }
+            
+            console.log(`Total storage used: ${formatFileSize(totalSize)}`);
+        }
+        
+        // Add to cart function
+        function addToCart(productId) {
+            const productName = document.querySelector(`#product${productId} h3`).textContent;
+            const productPrice = document.querySelector(`#product${productId} .price`).textContent;
+            
+            // Add to order items
+            orderItems.push({
+                id: productId,
+                name: productName,
+                price: productPrice
+            });
+            
+            // Show chatbot to continue ordering
+            openChatbot();
+            
+            // Send message to chatbot
+            addMessage(`Saya ingin membeli ${productName}`, 'user');
+            
+            // Bot response
+            setTimeout(() => {
+                addMessage(`Baik, ${productName} telah ditambahkan ke keranjang. Apakah Anda ingin menambahkan produk lain?`, 'bot');
+                
+                // Add quick replies
+                const quickReplies = `
+                    <div class="quick-replies">
+                        <div class="quick-reply" onclick="sendQuickReply('Ya, tambah produk lain')">Ya, tambah produk lain</div>
+                        <div class="quick-reply" onclick="sendQuickReply('Tidak, lanjut ke pembayaran')">Tidak, lanjut ke pembayaran</div>
+                        <div class="quick-reply" onclick="sendQuickReply('Lihat produk lainnya')">Lihat produk lainnya</div>
+                    </div>
+                `;
+                
+                addMessage(quickReplies, 'bot');
+                currentStep = 'add_more';
+            }, 500);
+        }
+        
+        // Chatbot functions
+        function setupChatbot() {
+            const chatbotButton = document.getElementById('chatbotButton');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const closeChatbot = document.getElementById('closeChatbot');
+            
+            chatbotButton.addEventListener('click', function() {
+                chatbotWindow.style.display = 'block';
+            });
+            
+            closeChatbot.addEventListener('click', function() {
+                chatbotWindow.style.display = 'none';
+            });
+        }
+        
+        function openChatbot() {
+            document.getElementById('chatbotWindow').style.display = 'block';
+        }
+        
+        function addMessage(text, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            
+            // Check if text contains HTML
+            if (text.includes('<div') || text.includes('<span')) {
+                messageDiv.innerHTML = text;
+            } else {
+                messageDiv.textContent = text;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage(message, 'user');
+                input.value = '';
+                
+                // Process the message
+                processUserMessage(message);
+            }
+        }
+        
+        function handleChatInputKey(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        function sendQuickReply(text) {
+            addMessage(text, 'user');
+            processUserMessage(text);
+        }
+        
+        function processUserMessage(message) {
+            message = message.toLowerCase();
+            
+            // Reset chatbot if user says "reset" or "batal"
+            if (message.includes('reset') || message.includes('batal') || message.includes('mulai ulang')) {
+                orderItems = [];
+                currentStep = 'greeting';
+                selectedProduct = null;
+                
+                setTimeout(() => {
+                    addMessage('Baik, kita mulai dari awal. Ada yang bisa saya bantu?', 'bot');
+                }, 500);
+                return;
+            }
+            
+            // Process based on current step
+            switch(currentStep) {
+                case 'greeting':
+                    handleGreetingStep(message);
+                    break;
+                case 'select_product':
+                    handleSelectProductStep(message);
+                    break;
+                case 'add_more':
+                    handleAddMoreStep(message);
+                    break;
+                case 'checkout':
+                    handleCheckoutStep(message);
+                    break;
+            }
+        }
+        
+        function handleGreetingStep(message) {
+            if (message.includes('pesan') || message.includes('beli') || message.includes('produk')) {
+                setTimeout(() => {
+                    addMessage('Silakan pilih produk yang ingin Anda pesan:', 'bot');
+                    
+                    const productList = `
+                        <div class="quick-replies">
+                            <div class="quick-reply" onclick="selectProduct(1)">Al-Quran (Rp 85.000)</div>
+                            <div class="quick-reply" onclick="selectProduct(2)">Sajadah (Rp 120.000)</div>
+                            <div class="quick-reply" onclick="selectProduct(3)">Mukena (Rp 185.000)</div>
+                            <div class="quick-reply" onclick="selectProduct(4)">Tasbih Digital (Rp 65.000)</div>
+                            <div class="quick-reply" onclick="selectProduct(5)">Sarung (Rp 250.000)</div>
+                            <div class="quick-reply" onclick="selectProduct(6)">Peci (Rp 75.000)</div>
+                        </div>
+                    `;
+                    
+                    addMessage(productList, 'bot');
+                    currentStep = 'select_product';
+                }, 500);
+            } else {
+                setTimeout(() => {
+                    addMessage('Saya bisa membantu Anda memesan produk atau menjawab pertanyaan tentang produk kami. Apa yang bisa saya bantu?', 'bot');
+                }, 500);
+            }
+        }
+        
+        function selectProduct(productId) {
+            const productName = document.querySelector(`#product${productId} h3`).textContent;
+            const productPrice = document.querySelector(`#product${productId} .price`).textContent;
+            
+            selectedProduct = {
+                id: productId,
+                name: productName,
+                price: productPrice
+            };
+            
+            addMessage(`Saya ingin membeli ${productName}`, 'user');
+            
+            setTimeout(() => {
+                addMessage(`Baik, ${productName} (${productPrice}). Berapa jumlah yang ingin dipesan?`, 'bot');
+                currentStep = 'add_more';
+            }, 500);
+        }
+        
+        function handleSelectProductStep(message) {
+            // Check if message contains product numbers
+            const productIds = {
+                '1': 1, 'satu': 1, 'alquran': 1, 'al-quran': 1,
+                '2': 2, 'dua': 2, 'sajadah': 2,
+                '3': 3, 'tiga': 3, 'mukena': 3,
+                '4': 4, 'empat': 4, 'tasbih': 4, 'tasbih digital': 4,
+                '5': 5, 'lima': 5, 'sarung': 5,
+                '6': 6, 'enam': 6, 'peci': 6,
+                '7': 7, 'tujuh': 7, 'minyak wangi': 7,
+                '8': 8, 'delapan': 8, 'buku doa': 8,
+                '9': 9, 'sembilan': 9, 'karpet': 9, 'karpet masjid': 9,
+                '10': 10, 'sepuluh': 10, 'rak': 10, 'rak alquran': 10
+            };
+            
+            for (const [key, value] of Object.entries(productIds)) {
+                if (message.includes(key)) {
+                    selectProduct(value);
+                    return;
+                }
+            }
+            
+            setTimeout(() => {
+                addMessage('Maaf, saya tidak mengerti. Silakan pilih produk dengan mengetik nomor atau nama produk, atau klik pilihan di atas.', 'bot');
+            }, 500);
+        }
+        
+        function handleAddMoreStep(message) {
+            if (message.includes('ya') || message.includes('tambah') || message.includes('lagi')) {
+                // User wants to add more products
+                setTimeout(() => {
+                    addMessage('Silakan pilih produk lain:', 'bot');
+                    
+                    const productList = `
+                        <div class="quick-replies">
+                            <div class="quick-reply" onclick="selectProduct(1)">Al-Quran (Rp 85.000)</div>
+                            <div class="quick-reply" onclick="selectProduct(2)">Sajadah (Rp 120.000)</div>
+                            <div class="quick-reply" onclick="selectProduct(3)">Mukena (Rp 185.000)</div>
+                            <div class="quick-reply" onclick="selectProduct(4)">Tasbih Digital (Rp 65.000)</div>
+                        </div>
+                    `;
+                    
+                    addMessage(productList, 'bot');
+                    currentStep = 'select_product';
+                }, 500);
+            } else if (message.includes('tidak') || message.includes('lanjut') || message.includes('bayar') || message.includes('checkout')) {
+                // User wants to checkout
+                showOrderSummary();
+            } else if (message.includes('lihat') || message.includes('produk')) {
+                // User wants to see more products
+                setTimeout(() => {
+                    addMessage('Silakan pilih produk:', 'bot');
+                    
+                    const productList = `
+                        <div class="quick-replies">
+                            <div class="quick-reply" onclick="selectProduct(1)">Al-Quran</div>
+                            <div class="quick-reply" onclick="selectProduct(2)">Sajadah</div>
+                            <div class="quick-reply" onclick="selectProduct(3)">Mukena</div>
+                            <div class="quick-reply" onclick="selectProduct(4)">Tasbih Digital</div>
+                            <div class="quick-reply" onclick="selectProduct(5)">Sarung</div>
+                            <div class="quick-reply" onclick="selectProduct(6)">Peci</div>
+                        </div>
+                    `;
+                    
+                    addMessage(productList, 'bot');
+                    currentStep = 'select_product';
+                }, 500);
+            } else {
+                // Assume it's a quantity
+                const quantity = parseInt(message) || 1;
+                
+                if (selectedProduct) {
+                    // Add product to order
+                    selectedProduct.quantity = quantity;
+                    orderItems.push({...selectedProduct});
+                    
+                    setTimeout(() => {
+                        addMessage(`Baik, ${selectedProduct.name} (${quantity}x) telah ditambahkan. Ingin tambah produk lain?`, 'bot');
+                        
+                        const quickReplies = `
+                            <div class="quick-replies">
+                                <div class="quick-reply" onclick="sendQuickReply('Ya, tambah produk lain')">Ya, tambah produk lain</div>
+                                <div class="quick-reply" onclick="sendQuickReply('Tidak, lanjut ke pembayaran')">Tidak, lanjut ke pembayaran</div>
+                            </div>
+                        `;
+                        
+                        addMessage(quickReplies, 'bot');
+                        selectedProduct = null;
+                    }, 500);
+                }
+            }
+        }
+        
+        function showOrderSummary() {
+            if (orderItems.length === 0) {
+                setTimeout(() => {
+                    addMessage('Keranjang Anda masih kosong. Silakan pilih produk terlebih dahulu.', 'bot');
+                    
+                    const productList = `
+                        <div class="quick-replies">
+                            <div class="quick-reply" onclick="selectProduct(1)">Al-Quran</div>
+                            <div class="quick-reply" onclick="selectProduct(2)">Sajadah</div>
+                            <div class="quick-reply" onclick="selectProduct(3)">Mukena</div>
+                        </div>
+                    `;
+                    
+                    addMessage(productList, 'bot');
+                    currentStep = 'select_product';
+                }, 500);
+                return;
+            }
+            
+            let summary = '<div class="order-summary">';
+            summary += '<h4>Ringkasan Pesanan</h4>';
+            
+            let total = 0;
+            orderItems.forEach((item, index) => {
+                const price = parseInt(item.price.replace(/\D/g, '')) || 0;
+                const quantity = item.quantity || 1;
+                const subtotal = price * quantity;
+                total += subtotal;
+                
+                summary += `<p>${item.name} (${quantity}x): ${item.price} = Rp ${subtotal.toLocaleString('id-ID')}</p>`;
+            });
+            
+            summary += `<p><strong>Total: Rp ${total.toLocaleString('id-ID')}</strong></p>`;
+            summary += '</div>';
+            
+            addMessage(summary, 'bot');
+            
+            setTimeout(() => {
+                addMessage('Apakah Anda ingin melanjutkan pemesanan via WhatsApp?', 'bot');
+                
+                const quickReplies = `
+                    <div class="quick-replies">
+                        <div class="quick-reply" onclick="confirmOrder()">Ya, lanjutkan via WhatsApp</div>
+                        <div class="quick-reply" onclick="sendQuickReply('Tidak, ubah pesanan')">Tidak, ubah pesanan</div>
+                        <div class="quick-reply" onclick="sendQuickReply('Reset pesanan')">Reset pesanan</div>
+                    </div>
+                `;
+                
+                addMessage(quickReplies, 'bot');
+                currentStep = 'checkout';
+            }, 500);
+        }
+        
+        function handleCheckoutStep(message) {
+            if (message.includes('ya') || message.includes('lanjut') || message.includes('whatsapp')) {
+                confirmOrder();
+            } else if (message.includes('tidak') || message.includes('ubah')) {
+                setTimeout(() => {
+                    addMessage('Baik, apa yang ingin Anda ubah?', 'bot');
+                    currentStep = 'add_more';
+                }, 500);
+            }
+        }
+        
+        function confirmOrder() {
+            // Build WhatsApp message
+            let whatsappMessage = "Halo Haji Slamet X Umam, saya ingin memesan:\n\n";
+            
+            let total = 0;
+            orderItems.forEach((item, index) => {
+                const price = parseInt(item.price.replace(/\D/g, '')) || 0;
+                const quantity = item.quantity || 1;
+                const subtotal = price * quantity;
+                total += subtotal;
+                
+                whatsappMessage += `${index + 1}. ${item.name} (${quantity}x): Rp ${subtotal.toLocaleString('id-ID')}\n`;
+            });
+            
+            whatsappMessage += `\nTotal: Rp ${total.toLocaleString('id-ID')}\n\n`;
+            whatsappMessage += "Mohon informasi lebih lanjut mengenai pengiriman dan pembayaran.";
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/6285817893744?text=${encodedMessage}`;
+            
+            // Show confirmation
+            addMessage('Baik, saya akan mengarahkan Anda ke WhatsApp untuk menyelesaikan pemesanan.', 'bot');
+            
+            setTimeout(() => {
+                // Open WhatsApp in new tab
+                window.open(whatsappUrl, '_blank');
+                
+                // Reset chatbot
+                orderItems = [];
+                currentStep = 'greeting';
+                selectedProduct = null;
+                
+                setTimeout(() => {
+                    addMessage('Pesanan telah dikirim ke WhatsApp. Ada yang bisa saya bantu lagi?', 'bot');
+                }, 1000);
+            }, 1500);
+        }
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                alert('Harap lengkapi semua field!');
+                return;
+            }
+            
+            // In a real application, you would send this data to a server
+            // For now, we'll just show an alert
+            alert(`Terima kasih ${name}! Pesan Anda telah berhasil dikirim. Kami akan membalas ke email ${email} dalam waktu 1-2 hari kerja.`);
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('uploadModal');
+            if (event.target === modal) {
+                closeUploadModal();
+            }
+            
+            const chatbot = document.getElementById('chatbotWindow');
+            const chatbotButton = document.getElementById('chatbotButton');
+            if (event.target !== chatbot && !chatbot.contains(event.target) && event.target !== chatbotButton && !chatbotButton.contains(event.target)) {
+                chatbot.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
